@@ -1,0 +1,809 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>WorryBuddies Prediction Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+
+  <!-- <script>
+    document.querySelector("form").addEventListener('submit', function (e) {
+      const age = document.querySelector('input[name="age"]:checked');
+      const gender = document.querySelector('input[name="gender"]:checked');
+      const university = document.querySelector('input[name="university"]');
+  
+      if (!age || !gender || !university || university.value.trim() === "") {
+        e.preventDefault(); // Mencegah form dikirim
+        alert("Please complete all fields (Age, Gender, and University).");
+      }
+    });
+  </script> -->
+
+  <body
+    class="min-h-screen relative overflow-x-hidden"
+    style="background: linear-gradient(to bottom, #ffffff 0%, #d1f3fd 100%)"
+  >
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <!-- Logo -->
+      <div class="flex flex-col md:flex-row items-center justify-center p-8">
+        <!-- <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANoAAAAoCAYAAACYR+TJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAyTSURBVHgB7V1rchNJEs4sPQaYjYA9AWIiwGzERmBOgH0CzAkQJzDzZ2MwE4GIGGRi/4BPgH2CESdAnADxC8sTMWhPgPYHLJatys3MlmQ9uruq291tw+iL8Ev9yO6szKysfJQRllhiCX803l2BCz/ehyGtAlJt9GkfAFuwtbIXdRnCEkss4Y9n++8QcTXsEAG1YevmetixQNGaf9wBwxoqWpoUSH0wpgdC5JeV97DEXwfT1j0NStgBy19b19/Ct4BnB6uI9C7uFKKj2/D4n535z8vw2/5dBNsCCynnN77IUkCkud/jvxtxU+gS3wm2P9SA8A1adp/S+kUqNxTIDWEbqNKAX3/6D5xXlPDqWNYjgZVb/H1B0QwYVoyMgIA15vkuNPc/QrN7H5b4fkGlTRlvyAAqNwh1NEc9eNZ9AucVdPx3SAnDipFu2o/BlMK9gCW+U9jM5UbACtdQQ/3bn1fhO4KBHMEK91AWj+rLL7GEJ3SmNIP296RsuSqaQCM0lUvLmW2JRJgo23dipHNXNIH43xJ0gSWWSABVturF87tmS4BCFG1E6eXShVwiKXT5IemnbxyFKZpap8rFZSRyiRQYNuAbR9l5BkGfjL0XeRxLtziX8pB/q4ELCBv8fQeW+EuA0D7gH73wg+aqzlbgTnYj4SqJN9S43YdvFG5FQ+jDo3+0Y85oU+PjHlQHrzikvwFxt0rCMIk4lY83gqoDqSuDabezB1JfZkwbjsutzJKcWulwiZOSJqBlbD+02mVy3jg1YnpgS73UzyH3q166q+9JGNAeV9xkVTmh7tdQxqcG0ykdNqQ6xpJktdCGX2++hqww/OFNHE849bsH290nSBzSj4OMffVvkghOxofn3VvOsZycl9FYRgCx2XWkuqFHWyvXwIXGxytYPfrI7Itdh0WVqEwQCESDrd0aeEJrzGy1npo5I5rMjlU2Flfm7t2bqXZ5/icPylF7/rzRuS9h6+bP4AvPd9VnSFM5IQpcubTJgvow7HljaO3C45WnsSc29984n9tWal7Pu919xcpWj70Xsdf0+KbbGxKekq2L9xQ6ltN8HFe3ANYW6IWN5faHOpJ5FUeelakeVhmV3Rqtca1PkqR2oVQOz43IS+vg2XYSJRPI+amqCuZohgnjTLWLzLJ20IoSWu+FuyhrgndNVTnx7GCTZ8mPkgD2VbIpWsUmjdG0PE6KdzHFqDQPXihPhVdRYykRcEkbyCxG5veo6hYdy+fZRcqzDYaIu+OCxcVBF8Ej8y6pgi2QFwHxFUSliW98aQZ5naOOs+yIhvECIQqgM2K6d/VSAhE4pJdJFGyBDmBxSWM6Pl0xuhjM6kWWH40VOKHvZqnlrIoaYuxSKAmKC+9PKM4pY4wrlgaBsu1vxp40oYk1SHJvn2c0GH0OG4HTKkDwHChKsBtB45WvwHnSyT9pTOX0yhzj/sUhqzpNX2SraARuC0D038nvwqQMlWwMlDVVlCVWmtHuX25QJXMs+hNAZ8T5dwxo1CFDFJM0JrfcmJDoZUolOwtkp2gyyD4FyodfTwIh6iPnIPASpTKDcKt+FgPDApGlkk0wHWjgWToXGjBar+TlQop3AVR3nocUEkAzT74FJROcXtFk8d/s/u45yJ1JaL/ZvZ9H58AYnEqoL7g8ShNrUDTIZF7rSTQXeLKDl5AnSkd1yBIyNrKe9vVojquziiZjSdnO3nnCnUfjvEt8CsCCLwhhKrokVsynYxD7xOsaprPH+bxe4PqV7qJ+FndZWO6FGn40M4R05fq4RomAfV7XNOZorPldim2C4VP1LMTo/ftgFY7piSsHypq9xt+fQgJolLTZhVODnzkkTZDJOrQo+ChadhhWdvWnuFLkFXXrkS2vzTBZlA1gh7a7V5yJTrA1GCva8z/uotW/3RBhHBsFotVTWU5Dm+DKVE7ThaHkYHpxFTckwY5pniB4lbZpbujRymxu6F83ZKa4x5HKT3E5UC02gLMB59B2Zz4IDIufNzQeSxpybMDc4bFcgxCe5o3CFI3EtRwLB5Y5tO6eCTnhuRaZ8LT4mke/EXsDnGIoWa9ZhdCuz1fC0PaHp5yofANpBkhnAtcsKrP28N4cXVY62BlVTtQD2nwe2QYnbucSotKEiY7HYFfzcXQynb2GVqxBwYKDRyfoLSSAS3DHx5HSJPfWynSSe5c0gKKxgdyWLWEoKrzfY0t64naQuzuXra+jtIrcyUQ7lUogN2N1YMLKzXgWJTB1SAqplgGsuU7TGSqqzI35JpU5YgBo8PlaWHWEV07O2L3IY7JeIk/Xs1CwYRFjOw/rflY17GGVJOIRodTuojvnmyGKmNF6IcyquS9j4ZHEbNRRn3uUTkLCTgsmNX9xJT5b199Scz9ZorlyVHOeo3Q9NjOKUkRWZoABuOngK+ZnxEG84hGQ6EDBWHCRT1BzXjxepoRBDGfzYBcLXOflq2gEHaLKRpoaxGDg8XTuytf/vfU+16CHIBk+J4HlR7wMrgWaF90Y/PCVZyO3Y3LaaCu7ngUqWqgrfXJU3Nh4trqLgnH43odvWSE3SrLwpqMv62e1fZi6DknaKojOZg1yVnQTQaKclQYUAQle2PKqo2MkHuSxnsTSZSgQ2SuaMMpUVrXy+Yz6h0bRtblQtNMnX3UnZf0CKickj91GhtgNOk2J0+GFnHnMs4spr+VuMDU6yOvQRzecxpkI4t9ZZjxXcbdNOJanhJ/riBHNewLCPk/lHctf8PXznpdyIbtL5AoWo/RJ+bsrSLxwJl7o0uswa0hgO871VVA/uB56LKh8qUESyMK7edCPC5sH+T4tcYpur3l+sKkzn6w75oWwca3vpBEQ6oz6zvwg/BR38fDzTmqDGSc3wfFO4JLat4lmMJELV3CLhrJ1xnrosz872EQoNvjjo2g9ehTfj5Y4vyLNjK6reAQ42rYOWUGSnkEOJfoUVkQOeLyZ6W3Tpswfn6Qt1PVRcClxIglU2OrLGUUK+tV2dTdggTlq0LNuY75XTPrxXAlnCd8vzvL5goaVnGZCVkxHFFh2X6PqxXfMw/qkcXbUn4eutNCpoPm9heBWsQnrMQbl91A9clt6KdF57CEckw5l04vsRibT9qliUaUwRxyV6srz9YMgwilStca0fMLRWk9ojkTh2qOPaqgJ99n8mJS6sbLBDF8MGxEbX32CFh7S827L6/8jiILbIY9NtXMut+g+vNBi+XnhmsWDsbPt8Vh6Rldjblj+5JH/3WAPpBeklk7ksfg2GYFnk+ik90q2F5dGvcn1rFjyt3wuDZTVS5+kOVOa/iL70SQ8L53YnpAByaQu8mtlL0nOJmhA1a9a5DnKl6k1iA8NNlysbB1po9Frp9eFsjaVz4R3ze4nbZ402Dq3m5j6NhmPMB5LPG0B+5CcRkfpWG2FGsujdmSfjaLpEw29NukZdziLkEjNpX6JYsnf+jKzbtmCEM6g1ICiIULhqstMhamdoRLQCLqPWZGEh2N+8gw+6kxuTAujKjsOWnAeMag8LTrpDGaYmJ62LbFROztF02oLzEEABRHbk+mslhfNGEh1R8YJ34V+tMPqTh6CpztNn8d9FcW4OGtdM4bW2abgcaVSOztFE6hVckSmUkCFMCpkvnXjZxb64q20lv1k+q6zSdk8BU82uzmPeHxjp2jDqUGlpDAlrxktv+lZXR67nosLUL4cnZAcVB9Q0SVFMoPru2ajbJyQ3134UAQvh+ZPXq/VQj4t1m2LghrOApWNzC6kgHHnOnJmqArg8Dbkae3nIbmnrZXbSQfIayakmPcYKVuokiR5Di1+jojGipuasbIttKkosAcuFBWxFGVL/s49dwApZLOphEE1hR32jSt6E87kjJGRAAaQSobKhtepgRtZBw8l12qTwZcH8UzmgbOVduyNxM9/tPLAl+7s7UdVN679DYM1YR0yMF46JqH/wRVjjc5CB3je0Hc2a+DzzsLHwZfbzgCS5DVDr6cHCWS1J/uYBkkaaQtHrDN7aloSpLMc9lTJiv43udIvJHtBkGz1laQOcNSJffglXSWDpAoQ1qTBkRkZ0CW+p4Rop6tNpFq+evgE0awqvybkoUNQacAvPyXbOq3Z3eBr70a/r1betKw0hKap/wu2b3gIkPD/TI87seNocpAEjX2oVRpjuSEdh1bqccgC2x/WWIbuO8dS32FK9sfQihW74+R3IKv3NSYQ1FfWZsZQeEiy+e71twjnGcIwLN0Ca2sGzYwQWrLBltnaOQvtUef1tw0duFGZV6nUh+Gwn9l7BQ2PsrX6LV4v1OYPW92R2Yqr15tsc7BEZvg/YE725QpoevwAAAAASUVORK5CYII="
+          class="w-32 md:w-40"
+          alt="Logo"
+        /> -->
+        <img
+          src="../static/assets/WorryBuddies.png"
+          class="w-32 md:w-40"
+          alt="Logo"
+        />
+      </div>
+
+      <!-- Form -->
+      <form
+        aria-label="WorryBuddies survey form"
+        id="formData"
+        action="/predict"
+        method="POST"
+        class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm needs-validation"
+        novalidate
+      >
+        <!-- Age -->
+        <div class="mb-6">
+          <p class="font-semibold text-sm mb-2">Your Age</p>
+          <div class="grid md:flex flex-wrap gap-x-8 gap-y-2 text-sm">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="age"
+                id="age1"
+                value="0"
+                required
+              />
+              <label class="form-check-label" for="age1"> Below 18 </label>
+              <div class="invalid-feedback">This field is required.</div>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="age"
+                id="age2"
+                value="1"
+              />
+              <label class="form-check-label" for="age2"> 18–22 </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="age"
+                id="age3"
+                value="2"
+              />
+              <label class="form-check-label" for="age3"> 23-26 </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="age"
+                id="age4"
+                value="3"
+              />
+              <label class="form-check-label" for="age4"> 27-30 </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="age"
+                id="age5"
+                value="4"
+              />
+              <label class="form-check-label" for="age5"> Above 30 </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="mb-6">
+          <p class="font-semibold text-sm mb-2">Gender</p>
+          <div class="grid md:flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="gender1"
+                value="0"
+                required
+              />
+              <label class="form-check-label" for="gender1"> Female </label>
+              <div class="invalid-feedback">This field is required.</div>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="gender2"
+                value="1"
+              />
+              <label class="form-check-label" for="gender2"> Male </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="gender3"
+                value="2"
+              />
+              <label class="form-check-label" for="gender3">
+                Prefer not to say
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- University -->
+        <div class="mb-6">
+          <label class="block font-semibold mb-1 text-sm" for="university">
+            University
+          </label>
+          <select
+            class="form-select"
+            id="university"
+            name="university"
+            aria-label="Default select example"
+            required
+          >
+            <option value="" selected class="text-sm">
+              Choose your university
+            </option>
+            <option value="0">
+              American International University Bangladesh (AIUB)
+            </option>
+            <option value="1">BRAC University</option>
+            <option value="2">Bangladesh Agricultural University (BAU)</option>
+            <option value="3">
+              Bangladesh University of Engineering and Technology (BUET)
+            </option>
+            <option value="4">Daffodil University</option>
+            <option value="5">Dhaka University (DU)</option>
+            <option value="6">
+              Dhaka University of Engineering and Technology (DUET)
+            </option>
+            <option value="7">East West University (EWU)</option>
+            <option value="8">Independent University, Bangladesh (IUB)</option>
+            <option value="9">Islamic University of Technology (IUT)</option>
+            <option value="10">North South University (NSU)</option>
+            <option value="11">
+              Patuakhali Science and Technology University
+            </option>
+            <option value="12">Rajshahi University (RU)</option>
+            <option value="13">
+              Rajshahi University of Engineering and Technology (RUET)
+            </option>
+            <option value="14">United International University (UIU)</option>
+          </select>
+          <div class="invalid-feedback">This field is required.</div>
+        </div>
+
+        <!-- Department -->
+        <div class="mb-6">
+          <label class="block font-semibold mb-1 text-sm" for="department">
+            Department
+          </label>
+          <select
+            class="form-select"
+            id="department"
+            name="department"
+            aria-label="Default select example"
+            required
+          >
+            <option value="" selected class="text-sm">
+              Choose your department
+            </option>
+            <option value="0">Biological Sciences</option>
+            <option value="1">Business and Entrepreneurship Studies</option>
+            <option value="2">
+              Engineering - CS / CSE / CSC / Similar to CS
+            </option>
+            <option value="3">
+              Engineering - Civil Engineering / Similar to CE
+            </option>
+            <option value="4">Engineering - EEE/ ECE / Similar to EEE</option>
+            <option value="5">
+              Engineering - Mechanical Engineering / Similar to ME
+            </option>
+            <option value="6">Engineering - Other</option>
+            <option value="7">Environmental and Life Sciences</option>
+            <option value="8">Law and Human Rights</option>
+            <option value="9">Liberal Arts and Social Sciences</option>
+            <option value="11">Pharmacy and Public Health</option>
+            <option value="10">Other</option>
+          </select>
+          <div class="invalid-feedback">This field is required.</div>
+        </div>
+
+        <!-- Academic Year -->
+        <div class="mb-6">
+          <label class="block font-semibold mb-1 text-sm" for="academic_year">
+            Academic Year
+          </label>
+          <select
+            class="form-select"
+            id="academic_year"
+            name="academic_year"
+            aria-label="Default select example"
+            required
+          >
+            <option value="" class="text-sm">Choose your academic year</option>
+            <option value="0">First Year or Equivalent</option>
+            <option value="1">Second Year or Equivalent</option>
+            <option value="2">Third Year or Equivalent</option>
+            <option value="3">Fourth Year or Equivalent</option>
+            <option value="4">Other</option>
+          </select>
+          <div class="invalid-feedback">This field is required.</div>
+        </div>
+
+        <!-- Current GPA -->
+        <div class="mb-6">
+          <label class="block font-semibold mb-1 text-sm" for="cgpa">
+            Current GPA
+          </label>
+          <select
+            class="form-select"
+            id="cgpa"
+            name="cgpa"
+            aria-label="Default select example"
+            required
+          >
+            <option value="" class="text-sm">Choose your current GPA</option>
+            <option value="0">Below 2.50</option>
+            <option value="1">2.50 - 2.99</option>
+            <option value="2">3.00 - 3.39</option>
+            <option value="3">3.40 - 3.79</option>
+            <option value="4">3.80 - 4.00</option>
+            <option value="5">Other</option>
+          </select>
+          <div class="invalid-feedback">This field is required.</div>
+        </div>
+
+        <!-- Scholarship -->
+        <div class="mb-6">
+          <h2 class="font-semibold mb-2 text-sm">
+            Did you received a waiver or scholarship at your university?
+          </h2>
+          <div class="flex gap-6 text-sm">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="scholarship"
+                id="scholarship1"
+                value="1"
+                required
+              />
+              <label class="form-check-label" for="scholarship1"> Yes </label>
+              <div class="invalid-feedback">This field is required.</div>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="scholarship"
+                id="scholarship2"
+                value="0"
+              />
+              <label class="form-check-label" for="scholarship2"> No </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- GAD-7 -->
+        <h2 class="font-bold text-base mb-4">GAD-7 Question</h2>
+        <div class="space-y-6">
+          <div>
+            <p class="font-semibold text-sm mb-1">
+              In a semester, how often you felt nervous, anxious or on edge due
+              to academic pressure?
+            </p>
+            <div class="grid md:flex flex-wrap gap-x-8 gap-y-2 text-sm">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="nervous"
+                  id="nervous1"
+                  value="0"
+                  required
+                />
+                <label class="form-check-label" for="nervous1">
+                  not at all
+                </label>
+                <div class="invalid-feedback">This field is required.</div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="nervous"
+                  id="nervous2"
+                  value="1"
+                />
+                <label class="form-check-label" for="nervous2">
+                  several days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="nervous"
+                  id="nervous3"
+                  value="2"
+                />
+                <label class="form-check-label" for="nervous3">
+                  more than half days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="nervous"
+                  id="nervous4"
+                  value="3"
+                />
+                <label class="form-check-label" for="nervous4">
+                  nearly everyday
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold text-sm mb-1">
+              In a semester, how often have you been unable to stop worrying
+              about your academic affairs?
+            </p>
+            <div class="grid md:flex flex-wrap gap-x-8 gap-y-2 text-sm">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="worry"
+                  id="worry1"
+                  value="0"
+                  required
+                />
+                <label class="form-check-label" for="worry1">
+                  not at all
+                </label>
+                <div class="invalid-feedback">This field is required.</div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="worry"
+                  id="worry2"
+                  value="1"
+                />
+                <label class="form-check-label" for="worry2">
+                  several days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="worry"
+                  id="worry3"
+                  value="2"
+                />
+                <label class="form-check-label" for="worry3">
+                  more than half days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="worry"
+                  id="worry4"
+                  value="3"
+                />
+                <label class="form-check-label" for="worry4">
+                  nearly everyday
+                </label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold text-sm mb-1">
+              In a semester, how often have you had trouble relaxing due to
+              academic pressure?
+            </p>
+            <div class="grid md:flex flex-wrap gap-x-8 gap-y-2 text-sm">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="relax"
+                  id="relax1"
+                  value="0"
+                  required
+                />
+                <label class="form-check-label" for="relax1">
+                  not at all
+                </label>
+                <div class="invalid-feedback">This field is required.</div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="relax"
+                  id="relax2"
+                  value="1"
+                />
+                <label class="form-check-label" for="relax2">
+                  several days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="relax"
+                  id="relax3"
+                  value="2"
+                />
+                <label class="form-check-label" for="relax3">
+                  more than half days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="relax"
+                  id="relax4"
+                  value="3"
+                />
+                <label class="form-check-label" for="relax4">
+                  nearly everyday
+                </label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold text-sm mb-1">
+              In a semester, how often have you been easily annoyed or irritated
+              because of academic pressure?
+            </p>
+            <div class="grid md:flex flex-wrap gap-x-8 gap-y-2 text-sm">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="annoyed"
+                  id="annoyed1"
+                  value="0"
+                  required
+                />
+                <label class="form-check-label" for="annoyed1">
+                  not at all
+                </label>
+                <div class="invalid-feedback">This field is required.</div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="annoyed"
+                  id="annoyed2"
+                  value="1"
+                />
+                <label class="form-check-label" for="annoyed2">
+                  several days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="annoyed"
+                  id="annoyed3"
+                  value="2"
+                />
+                <label class="form-check-label" for="annoyed3">
+                  more than half days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="annoyed"
+                  id="annoyed4"
+                  value="3"
+                />
+                <label class="form-check-label" for="annoyed4">
+                  nearly everyday
+                </label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold text-sm mb-1">
+              In a semester, how often have you worried too much about academic
+              affairs?
+            </p>
+            <div class="grid md:flex flex-wrap gap-x-8 gap-y-2 text-sm">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="overthinking"
+                  id="overthinking1"
+                  value="0"
+                  required
+                />
+                <label class="form-check-label" for="overthinking1">
+                  not at all
+                </label>
+                <div class="invalid-feedback">This field is required.</div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="overthinking"
+                  id="overthinking2"
+                  value="1"
+                />
+                <label class="form-check-label" for="overthinking2">
+                  several days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="overthinking"
+                  id="overthinking3"
+                  value="2"
+                />
+                <label class="form-check-label" for="overthinking3">
+                  more than half days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="overthinking"
+                  id="overthinking4"
+                  value="3"
+                />
+                <label class="form-check-label" for="overthinking4">
+                  nearly everyday
+                </label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold text-sm mb-1">
+              In a semester, how often have you been so restless due to academic
+              pressure that it is hard to sit still?
+            </p>
+            <div class="grid md:flex flex-wrap gap-x-8 gap-y-2 text-sm">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="restless"
+                  id="restless1"
+                  value="0"
+                  required
+                />
+                <label class="form-check-label" for="restless1">
+                  not at all
+                </label>
+                <div class="invalid-feedback">This field is required.</div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="restless"
+                  id="restless2"
+                  value="1"
+                />
+                <label class="form-check-label" for="restless2">
+                  several days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="restless"
+                  id="restless3"
+                  value="2"
+                />
+                <label class="form-check-label" for="restless3">
+                  more than half days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="restless"
+                  id="restless4"
+                  value="3"
+                />
+                <label class="form-check-label" for="restless4">
+                  nearly everyday
+                </label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold text-sm mb-1">
+              In a semester, how often have you felt afraid, as if something
+              awful might happen?
+            </p>
+            <div class="grid md:flex flex-wrap gap-x-8 gap-y-2 text-sm">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="afraid"
+                  id="afraid1"
+                  value="0"
+                  required
+                />
+                <label class="form-check-label" for="afraid1">
+                  not at all
+                </label>
+                <div class="invalid-feedback">This field is required.</div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="afraid"
+                  id="afraid2"
+                  value="1"
+                />
+                <label class="form-check-label" for="afraid2">
+                  several days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="afraid"
+                  id="afraid3"
+                  value="2"
+                />
+                <label class="form-check-label" for="afraid3">
+                  more than half days
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="afraid"
+                  id="afraid4"
+                  value="3"
+                />
+                <label class="form-check-label" for="afraid4">
+                  nearly everyday
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 flex justify-center">
+          <button
+            class="bg-[#0B8BF2] text-white font-semibold rounded px-8 py-2 text-sm hover:bg-[#0a7ad6] focus:outline-none focus:ring-2 focus:ring-[#0a7ad6]"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- <script src="../src/main.js"></script> -->
+    <!-- <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('dataForm').addEventListener('submit', function(event) {
+              // Get form fields
+              const age = document.querySelector('input[name="age"]:checked');
+              const gender = document.querySelector('input[name="gender"]:checked');
+              const university = document.getElementById('university').value;
+
+              // Check if any field is missing
+              if (!age || !gender || university === "") {
+                  // Prevent form submission
+                  event.preventDefault();
+
+                  // Show alert
+                  alert("Please fill in all fields before submitting the form.");
+              }
+          });
+      });
+  </script> -->
+    <!-- <script>
+      window.onload = function () {
+        document.getElementById("dataForm").onSubmit = function () {
+          return validateForm();
+        };
+      };
+
+      function validateForm() {
+        var age = document.getElementById("age").checked;
+        var gender = document.getElementById("gender").value;
+
+        if (age === "" || gender === "") {
+          alert("Please fill in all fields.");
+          return false; // Menghentikan form untuk submit
+        }
+
+        return true;
+      }
+    </script> -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

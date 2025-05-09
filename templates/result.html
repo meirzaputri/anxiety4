@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>WorryBuddies Anxiety Level</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-white relative overflow-x-hidden">
+    <!-- Logo -->
+    <div class="flex flex-col md:flex-row items-center justify-center p-8">
+      <!-- <img
+        src="data:image/png;base64,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"
+        class="w-32 md:w-40"
+        alt="Logo"
+      /> -->
+      <img
+        src="../static/assets/WorryBuddies.png"
+        class="w-32 md:w-40"
+        alt="Logo"
+      />
+    </div>
+
+    <!-- Result -->
+    <div class="flex justify-center items-center mx-4">
+      <div
+        class="rounded-3xl w-full max-w-sm p-6 pt-10 flex flex-col items-center justify-center"
+        style="background: linear-gradient(to bottom, #86cfff 0%, #ffccbc 100%)"
+      >
+        <div
+          class="bg-white rounded-full px-6 py-2 mb-4 shadow-md select-none"
+          style="box-shadow: 0 4px 6px rgb(0 0 0 / 0.1)"
+        >
+          <p class="font-semibold text-black text-center text-sm md:text-base">
+            Your anxiety level is :
+          </p>
+        </div>
+
+        <div
+          class="rounded-full flex justify-center items-center mb-6 shadow-lg select-none"
+          style="box-shadow: 0 8px 15px rgba(97, 93, 91, 0.4)"
+        >
+          <!-- <img alt="Minimal" class="w-64 h-64" src="assets/icon_minimal.png" /> -->
+          <img
+            alt="Anxiety Level"
+            class="w-64 h-64"
+            src="{% if label == 'Minimal Anxiety' %}/static/assets/icon_minimal.png{% elif label == 'Mild Anxiety' %}/static/assets/icon_mild.png{% elif label == 'Moderate Anxiety' %}/static/assets/icon_moderate.png{% elif label == 'Severe Anxiety' %}/static/assets/icon_severe.png{% endif %}"
+          />
+
+          <!-- Menampilkan gambar berdasarkan anxiety level -->
+          <!-- {% if label == 'Minimal Anxiety' %}
+            <img alt="Minimal" class="w-64 h-64" src="../src/assets/icon_minimal.png" />
+          {% elif label == 'Mild Anxiety' %}
+            <img alt="Mild" class="w-64 h-64" src="../src/assets/icon_mild.png" />
+          {% elif label == 'Moderate Anxiety' %}
+            <img alt="Moderate" class="w-64 h-64" src="../src/assets/icon_moderate.png" />
+          {% elif label == 'Severe Anxiety' %}
+            <img alt="Severe" class="w-64 h-64" src="../src/assets/icon_severe.png" />
+          {% endif %} -->
+        </div>
+        <h2 class="font-extrabold text-black text-xl mb-6 select-none">
+          {{ label }}
+        </h2>
+        <a href="/">
+          <button
+            class="bg-[#0a7ddb] text-white font-semibold rounded-md px-8 py-2 select-none hover:bg-[#0869c6] transition-colors"
+            type="button"
+          >
+            Home
+          </button>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
